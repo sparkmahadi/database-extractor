@@ -1,24 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserDataContext } from './../App';
-import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 
 const Output = () => {
     const { userData, setUserData } = useContext(UserDataContext);
     const [photoFiles, setPhotoFiles] = useState(null);
     const [images, setImages] = useState([]);
-
-    const styles = StyleSheet.create({
-        page: {
-            flexDirection: 'row',
-            backgroundColor: '#E4E4E4'
-        },
-        section: {
-            margin: 10,
-            padding: 10,
-            flexGrow: 1
-        }
-    });
 
 
 

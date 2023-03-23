@@ -1,0 +1,31 @@
+{
+    "id": "641c6fdf469b296d72385692",
+    "invoice_no": "202008-15",
+    "balance": "$2,521.41",
+    "company": "ENTHAZE",
+    "email": "cameronschwartz@enthaze.com",
+    "phone": "+1 (984) 593-3083",
+    "address": "197 Frost Street, Lawrence, Virginia, 3769",
+    "trans_date": "16-12-2021",
+    "due_date": "15-12-2021",
+    "items": [
+      {
+        "sno": 1,
+        "desc": "ullamco et incididunt mollit aute",
+        "qty": 4,
+        "rate": 783.08
+      },
+      {
+        "sno": 2,
+        "desc": "tempor id mollit ipsum enim",
+        "qty": 2,
+        "rate": 1010.97
+      },
+      {
+        "sno": 3,
+        "desc": "voluptate aute dolore dolore magna",
+        "qty": 4,
+        "rate": 818.63
+      }
+    ]
+  }

@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./components/Home";
 import Output from './components/Output';
-import Download from './components/Download';
+import NewApp from './components/NewApp';
 
 const router = createBrowserRouter([
     {
@@ -13,8 +13,8 @@ const router = createBrowserRouter([
         element: <Output></Output>
     },
     {
-        path: '/download',
-        element: <Download></Download>
+        path: '/view',
+        element: <NewApp></NewApp>
     },
 ])
 
