@@ -11,8 +11,13 @@ const InputForm = () => {
     const submit = data => {
         setUserData(data);
 
-        handleAddPhoto(data.photo[0]);
-        handleAddSign(data.signature[0]);
+        if (data.photo.length) {
+            console.log('inside phoot', data.photo);
+            handleAddPhoto(data.photo[0]);
+        }
+        if (data.signature.length) {
+            handleAddSign(data.signature[0]);
+        }
     }
 
     // 9e3db39ebdaf0baa8dd92b361f54f928
@@ -29,14 +34,14 @@ const InputForm = () => {
             method: 'POST',
             body: formData
         })
-        .then(res=>res.json())
-        .then(imgData => {
-            console.log(imgData);
-            if(imgData.success){
-                console.log(imgData.data.url);
-                setPhoto(imgData.data.url);
-            }
-        })
+            .then(res => res.json())
+            .then(imgData => {
+                console.log(imgData);
+                if (imgData.success) {
+                    console.log(imgData.data.url);
+                    setPhoto(imgData.data.url);
+                }
+            })
     }
 
     const handleAddSign = image => {
@@ -51,91 +56,89 @@ const InputForm = () => {
             method: 'POST',
             body: formData
         })
-        .then(res=>res.json())
-        .then(imgData => {
-            console.log(imgData);
-            if(imgData.success){
-                console.log(imgData.data.url);
-                setSign(imgData.data.url);
-            }
-        })
+            .then(res => res.json())
+            .then(imgData => {
+                console.log(imgData);
+                if (imgData.success) {
+                    console.log(imgData.data.url);
+                    setSign(imgData.data.url);
+                }
+            })
     }
 
 
     console.log(userData);
-    // useEffect(()=>{
-    //     if(Object.keys(userData).length){
-    //         navigate('/download');
-    //     }
-    // },[userData])
 
     return (
-        <>
+        <div className='xl:flex justify-center gap-10'>
             <div className=''>
-                <form onSubmit={handleSubmit(submit)} className='px-10 lg:mx-80 lg:px-20' action="">
+                <form onSubmit={handleSubmit(submit)} className='px-5 max-w-2xl mx-auto' action="">
                     <div className='flex justify-between items-center gap-5 mb-5'>
-                        <label className='text-xl' htmlFor="">Name: </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" {...register("name")} />
+                        <label className='md:text-xl' htmlFor="">Name: </label>
+                        <input type="text" placeholder="Type here" className="input input-bordered md:w-full max-w-xs w-2/3" {...register("name")} />
                     </div>
 
 
                     <div className='flex justify-between items-center gap-5 mb-5'>
-                        <label className='text-xl' htmlFor="">Father's Name : </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" {...register("fatherName")} />
+                        <label className='md:text-xl' htmlFor="">Father's Name : </label>
+                        <input type="text" placeholder="Type here" className="input input-bordered md:w-full max-w-xs w-2/3" {...register("fatherName")} />
                     </div>
 
                     <div className='flex justify-between items-center gap-5 mb-5'>
-                        <label className='text-xl' htmlFor="">Mother's Name : </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" {...register("motherName")} />
+                        <label className='md:text-xl' htmlFor="">Mother's Name : </label>
+                        <input type="text" placeholder="Type here" className="input input-bordered md:w-full max-w-xs w-2/3" {...register("motherName")} />
                     </div>
 
                     <div className='flex justify-between items-center gap-5 mb-5'>
-                        <label className='text-xl' htmlFor="">Date of Birth : </label>
-                        <input type="date" placeholder="Type here" className="input input-bordered w-full max-w-xs" {...register("dateOfBirth")} />
+                        <label className='md:text-xl' htmlFor="">Date of Birth : </label>
+                        <input type="date" placeholder="Type here" className="input input-bordered md:w-full max-w-xs w-2/3" {...register("dateOfBirth")} />
                     </div>
 
                     <div className='flex justify-between items-center gap-5 mb-5'>
-                        <label className='text-xl' htmlFor="">Age : </label>
-                        <input type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" {...register("age")} />
+                        <label className='md:text-xl' htmlFor="">Age : </label>
+                        <input type="number" placeholder="Type here" className="input input-bordered md:w-full max-w-xs w-2/3" {...register("age")} />
                     </div>
 
                     <div className='flex justify-between items-center gap-5 mb-5'>
-                        <label className='text-xl' htmlFor="">Address : </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" {...register("address")} />
+                        <label className='md:text-xl' htmlFor="">Address : </label>
+                        <input type="text" placeholder="Type here" className="input input-bordered md:w-full max-w-xs w-2/3" {...register("address")} />
                     </div>
 
                     <div className='flex justify-between items-center gap-5 mb-5'>
-                        <label className='text-xl' htmlFor="">Blood Group : </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" {...register("bloodGroup")} />
+                        <label className='md:text-xl' htmlFor="">Blood Group : </label>
+                        <input type="text" placeholder="Type here" className="input input-bordered md:w-full max-w-xs w-2/3" {...register("bloodGroup")} />
                     </div>
                     <div className='flex justify-between items-center gap-5 mb-5'>
-                        <label className='text-xl' htmlFor="">Mobile : </label>
-                        <input type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" {...register("mobile")} />
+                        <label className='md:text-xl' htmlFor="">Mobile : </label>
+                        <input type="number" placeholder="Type here" className="input input-bordered md:w-full max-w-xs w-2/3" {...register("mobile")} />
                     </div>
 
                     <div className='flex justify-between items-center gap-5 mb-5'>
-                        <label className='text-xl' htmlFor="">E-mail : </label>
-                        <input type="email" placeholder="Type here" className="input input-bordered w-full max-w-xs" {...register("email")} />
+                        <label className='md:text-xl' htmlFor="">E-mail : </label>
+                        <input type="email" placeholder="Type here" className="input input-bordered md:w-full max-w-xs w-2/3" {...register("email")} />
                     </div>
 
                     <div className='flex justify-between items-center gap-5 mb-5'>
-                        <label className='text-xl' htmlFor="">Photo : </label>
-                        <input type="file" accept='image/*' placeholder="Type here" className="input input-bordered w-full max-w-xs" {...register("photo")} />
+                        <label className='md:text-xl' htmlFor="">Photo : </label>
+                        <input type="file" accept='image/*' placeholder="Type here" className="input input-bordered md:w-full max-w-xs w-2/3" {...register("photo")} />
                     </div>
 
                     <div className='flex justify-between items-center gap-5 mb-5'>
-                        <label className='text-xl' htmlFor="">Signature : </label>
-                        <input type="file" accept='image/*' placeholder="Type here" className="input input-bordered w-full max-w-xs" {...register("signature")} />
+                        <label className='md:text-xl' htmlFor="">Signature : </label>
+                        <input type="file" accept='image/*' placeholder="Type here" className="input input-bordered md:w-full max-w-xs w-2/3" {...register("signature")} />
                     </div>
 
-                    <input type="submit" className='btn' />
+                    <div className='pb-5'>
+                        <input type="submit" className='btn btn-sm mr-3' />
+                        <input type="reset" className='btn btn-sm btn-warning' />
+                    </div>
                 </form>
             </div>
 
             {
                 Object.keys(userData).length ? <NewApp userData={userData} photo={photo} sign={sign}></NewApp> : null
             }
-        </>
+        </div>
     );
 };
 

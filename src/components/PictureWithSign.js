@@ -13,13 +13,15 @@ const PictureWithSign = ({photo, sign}) => {
         }
     });
 
-    console.log('photo source', photo);
-
     return (
         <Fragment>
         <View style={styles.fieldsContainer}>
-            <Image style={{width:'225px', height:'283px'}} src={photo} />
-            <Image style={{width:'160px', height:'40px'}} src={sign} />
+            {
+                photo && <Image style={{width:'225px', height:'283px'}} src={photo} />
+            }
+            {
+                sign && <Image style={{width:'160px', height:'40px'}} src={sign} />
+            }
         </View >
 
     </Fragment>
